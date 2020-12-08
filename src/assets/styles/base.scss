@@ -1,0 +1,65 @@
+@import "imports/variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+#app, body, html  {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+select {
+  height: 24px;
+  padding: 0 6px;
+  border: none;
+  background: $white;
+  border-radius: 4px;
+}
+
+button {
+  background: $white;
+  border-radius: 6px;
+  border: none;
+  padding: 0px 12px;
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background: $secondary;
+    color: $white;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .container {
+    max-width: 1140px;
+  }
+}
