@@ -1,6 +1,6 @@
 # vue-path-visualizer
 
-###A Vue 3 project to visualize some pathfinder algorithms.
+### A Vue 3 project to visualize some pathfinder algorithms.
 
 - Dijkstra’s Algorithm
 
