@@ -16,6 +16,7 @@
           <button @click="onClickStart" :disabled="isRunning" type="button">Start</button>
           <button @click="$emit('clickReset')" :disabled="isRunning" type="button">Reset</button>
         </div>
+        <p>Click and drag to create barriers :)</p>
       </div>
       <div class="right">
         <a href="https://github.com/heitorcaldeira">
@@ -70,10 +71,6 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
-    @media(max-width: $breakpoint-sm) {
-      display: none;
-    }
   }
 
   h1 {
@@ -84,6 +81,16 @@ export default {
 
 button {
   margin-left: 8px;
+}
+
+@media(max-width: $breakpoint-sm) {
+  .right {
+    display: none;
+  }
+
+  h1 {
+    display: none;
+  }
 }
 
 </style>

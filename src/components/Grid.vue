@@ -20,11 +20,6 @@ export default {
       renderTime: new Date().getUTCMilliseconds()
     }
   },
-  watch: {
-    selectedAlgorithm() {
-      this.startAlgorithm()
-    }
-  },
   components: {
     Node
   },
