@@ -2,6 +2,8 @@
 
 ### A Vue 3 project to visualize some pathfinder algorithms.
 
+![](visualizer.gif)
+
 - Dijkstra’s Algorithm
 
 **TODOS**:
