@@ -9,13 +9,14 @@ export default {
     selectedAlgorithm: String
   },
   emits: ['searchCompleted'],
-  data: function () {
+  data() {
     return {
       gridHeight: 0,
       isRunning: false,
       nodes: [],
       mousePressed: false,
       initialNode: null,
+      isDirty: false,
       finishNode: null,
       renderTime: new Date().getUTCMilliseconds()
     }
@@ -82,6 +83,7 @@ export default {
           document.getElementById(`node-${node.column}-${node.row}`).classList.add('node-shortest-path');
         }, 50 * i);
       }
+      this.isDirty = true;
       this.isRunning = false
       this.$emit('searchCompleted', true)
     },
@@ -91,11 +93,13 @@ export default {
       const gridHeight = this.gridHeight
       const totalColumns = Math.floor(gridWidth / squareSize)
       const totalRows = Math.floor(gridHeight / squareSize)
+
       this.initialNode = {row: Math.floor((gridHeight / squareSize) / 2), col: Math.floor(gridWidth / squareSize / 5)};
       this.finishNode = {
         row: Math.floor((gridHeight / squareSize) / 2),
         col: Math.floor((gridWidth / squareSize / 5) * 4)
       };
+
       const gridMap = []
 
       for (let i = 0; i < totalColumns; i++) {
@@ -109,7 +113,13 @@ export default {
       return gridMap;
     },
     handleMouseDown(row, col) {
+      if (this.isDirty) {
+        this.updateGrid();
+        this.isDirty = false;
+      }
+
       if (!this.isRunning) {
+        this.isEmpty = false;
         this.mousePressed = true
         this.handleMouseEnter(row, col)
       }

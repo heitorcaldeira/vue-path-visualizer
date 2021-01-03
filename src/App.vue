@@ -19,7 +19,7 @@ import Grid from "@/components/Grid";
 export default {
   name: 'App',
   components: {Grid, Header},
-  data: function () {
+  data() {
     return {
       selectedAlgorithm: '',
       isRunning: false,
